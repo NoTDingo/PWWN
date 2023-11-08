@@ -5,15 +5,12 @@
 </head>
 <body bgcolor="#000000">
 <script>
- 
-
-    var names = ["Pwn506", "Sylx", "FA7", "Russia", "PRD8A", "Dingo"];
+    var names = ["[ Pwn506 ]", "[ Sylx ]", "[ FA7 ]", "[ Russia ]", "[ PRD8A ]", "[ Dingo ]"];
     var nameIndex = 0;
 
     function changeNames() {
         var currentName = names[nameIndex];
         document.getElementById("hacked-name").textContent = "Hacked By " + currentName;
-        document.getElementById("name").textContent = currentName;
         nameIndex = (nameIndex + 1) % names.length;
     }
 
@@ -24,27 +21,16 @@
     <img border="0" src="https://iplogger.com/29jWm4.png" width="750" height="500">
 </p>
 <p align="center">
-    <font face="Courier" size="6" style="color: #666666;"><span id="hacked-name">Hacked By pwn</span></font>
-</p>
-<p align="center">
-    <font face="Courier" size="4"><b>
-        <span style="color: #999999;">
-            <span style="color: #666666;">The greatest pleasure in life is doing what people say you cannot do..</span>
-        </span>
-    </b></font>
+    <font face="Courier" size="6" style="color: #000000;"><span id="hacked-name" style="color: black;">Hacked By Us</span></font>
 </p>
 <p align="center">
     <b>
-        <font face="Courier" size="4" color="red">Hello kiddo &lt;3 Who we Are  <span id="name">Oppenheimers</span></font>
+        <font face="Courier" color="#000000">
+            <span style="font-size: 24px;">Discord :</span> <a href="Https://Discord.gg/PWN" style="font-size: 27px; color: #000000; text-decoration: none;">Discord.gg/Pwn</a>
+        </font>
     </b>
 </p>
 <p align="center">
-    <b>
-        <font face="Courier" size="4" color="#666666">Discord : https://discord.gg/PWN</font>
-    </b>
-</p>
-<p align="center">
-</p>
 </body>
 </html>
 
@@ -55,88 +41,134 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            color: black;
+            color: #000000; /* Change the text color to black */
+            background-color: #000000;
+            overflow: hidden; /* Hide horizontal overflow content */
         }
 
-        h1 {
-            color: black;
-        }
-
-        h3 {
-            color: black;
+        h1, h3 {
+            color: #ffffff; /* Header text color */
         }
 
         #ip-address {
-            display: inline;
-        }
-
-        #ip-address-label {
-            color: black;
-        }
-
-        #ip-address-value {
-            color: red;
+            color: red; /* IP address text color */
         }
 
         #ip-info {
-            font-family: monospace;
+            font-family: Arial, sans-serif;
             white-space: pre;
-            color: red;
+            color: red; /* IP info text color */
+        }
+
+        .cmd-text-container {
+            position: relative;
+        }
+
+        .cmd-text {
+            color: #000000; /* Change the red text color to black */
+            font-size: 9px;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            position: absolute;
+            animation: scrollText 20s linear infinite;
+            transform: translateX(100%);
+            -webkit-text-stroke: 1px #ff0000;
+            text-stroke: 1px #666666;
+        }
+
+        .gray-text {
+            color: #000000; /* Change the gray text color to black */
+            outline: 1px solid #000000; /* Black outline for gray text */
+        }
+
+        .json-data {
+            font-family: Arial, sans-serif;
+            color: red; /* Set text color to red */
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Create a black outline */
+        }
+
+        .json-data span {
+            color: black;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .cmd-text:hover {
+            animation-play-state: paused;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(5px);
         }
     </style>
-    <script>
-        // JavaScript code to fetch and display the user's IP address and information
-        function fetchIPAndInfo() {
-            fetch('https://api.ipify.org/?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip-address-value').textContent = data.ip;
-                    return data.ip;
-                })
-                .then(ip => fetch(`https://ipinfo.io/${ip}/json`))
-                .then(response => response.json())
-                .then(ipInfoData => {
-                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
-                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
-                });
-        }
-
-        // Function to toggle the background color between white and black
-        function toggleBackgroundColor() {
-            var body = document.getElementsByTagName('body')[0];
-            var currentColor = body.style.backgroundColor;
-            var newColor = currentColor === 'white' ? 'black' : 'white';
-            body.style.backgroundColor = newColor;
-        }
-
-        // Fetch IP address and information initially
-        fetchIPAndInfo();
-
-        // Toggle background color every second
-        setInterval(toggleBackgroundColor, 500);
-        window.open('https://discord.gg/pwn','_blank');
-    </script>
 </head>
 <body>
-    <h3 style="color: grey;">Your IP Address:</h3>
-    <p id="ip-address">
-        <span id="ip-address-label">Your IP Address: </span>
-        <span id="ip-address-value">Loading...</span>
-    </p>
+<h3 style="color: black;">Your IP Address:</h3>
+<p id="ip-address">
+    <span style="color: red;"> </span>
+    <span id="ip-address-value" style="color: black; font-size: 17px;"">Loading...</span>
+</p>
 
-    <h3 style="color: grey;">Your IP Information:</h3>
-    <pre id="ip-info">Fetching...</pre>
-    
-    
+<h3 style="color: black; animation: flashing 1s infinite;">Your iP Info :</h3>
+</body>
+<style>
+    @keyframes flashing {
+        0% { color: black; }
+        50% { color: red; }
+        100% { color: black; }
+    }
+</style>
+
+
+
+<pre id="ip-info" class="json-data">Fetching...</pre>
+<div class="cmd-text-container" style="position: relative; top: -10px;">
+    <div class="cmd-text" style="font-size: 20px; text-stroke: 3px red; color: red;">The greatest pleasure in life is doing what people say you cannot do.</div>
+</div>
+
+<video controls autoplay loop muted>
+    <source src="https://cdn.discordapp.com/attachments/1159779721450631179/1171780789411774474/1689868679-1689868679-oppenheimer-live-wallpaper.mp4?ex=655dece6&is=654b77e6&hm=bedc581e80029ebcc4715841bcd776cdac9e93e6a2a82e58959db05fc2a1e491" type="video/mp4">
+    Your browser does not support the video element.
+</video>
+
+<script>
+    // JavaScript code to fetch and display the user's IP address and information
+    function fetchIPAndInfo() {
+        fetch('https://api.ipify.org/?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-address-value').textContent = data.ip;
+                return data.ip;
+            })
+            .then(ip => fetch(`https://ipinfo.io/${ip}/json`))
+            .then(response => response.json())
+            .then(ipInfoData => {
+                document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
+                document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
+            });
+    }
+
+    // Fetch IP address and information initially
+    fetchIPAndInfo();
+</script>
 <video controls autoplay width="0" height="0">
-    <source src="https://cdn.discordapp.com/attachments/1157677551234318509/1171654870080696414/Oppwn-1.mp3?ex=655d77a1&is=654b02a1&hm=451a8f665160465050aa7f580b8015503132ccbbbedd0b9c9220fb121c86d1c1" type="audio/mpeg">
+    <source src="https://cdn.discordapp.com/attachments/1157677551234318509/1171878239799627956/23042714_sci-fi-adventure_by_surprised_preview.mp3?ex=655e47a8&is=654bd2a8&hm=b3a500649ac12b5ea1e70e7a14718a6a87d061b30ed0806cb715be8abdf01ac3&" type="audio/mpeg">
     Your browser does not support the audio element.
 </video>
 </body>
 </html>
-</html>
-</body></html>
